@@ -13,16 +13,10 @@ module.exports = {
     }
   },
 
-  bloodType(blood) {
-    const bloodStr = new String(blood)
-
-    const lastChar = bloodStr.substring(bloodStr.length - 1)
-    let newBlood = ""
-
-    if (lastChar == "0") newBlood = bloodStr.replace("0", "-")  
-
-    if (lastChar == "1")  newBlood = bloodStr.replace("1", "+")
-
-    return newBlood
+  formatPrice(price) {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(price/100)
   }
 }
