@@ -64,11 +64,28 @@ module.exports = {
     const keys = Object.keys(req.body)
 
     for (key of keys) {
-      if (req.body[key] == "") {
+      if (req.body[key] == "" && key != "removed_files") {
         return res.send("Please, fullfill all fields!")
       }
     }
     
+    if (req.files.length != 0) {
+      const newFilesPromise = req.files.map(file => 
+        File.create({...file, product_id: req.body.id}))
+
+        await Promise.all(newFilesPromise)
+    }
+
+    if (req.body.removed_files) {
+      const removedFiles = req.body.removed_files.split(",")
+      const lastIndex = removedFiles.length - 1
+      removedFiles.splice(lastIndex, 1)
+
+      const removedFilesPromise = removedFiles.map(id => File.delete(id))
+      
+      await Promise.all(removedFilesPromise)
+    }
+
     req.body.price = req.body.price.replace(/\D/g,"")
 
     if (req.body.old_price != req.body.price) {
