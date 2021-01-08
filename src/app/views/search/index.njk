@@ -1,5 +1,4 @@
 {% extends "layout.njk" %}
-<<<<<<< HEAD
 {% import "parts/section-products.njk" as section %}
 
 {% block content %}
@@ -24,30 +23,4 @@
   {{section.products('', 'searched', products)}}
 
   </section>
-=======
-{% import "parts/search-products.njk" as section %}
-
-{% block content %}
-<section class="search-products container">
-
-  <aside>
-    <div class="header">
-      <h2>{{search.term}}</h2>
-      <p>{{search.total}} encontrados</p>
-    </div>
-    <nav class="categories">
-      <h4>Categorias</h4>
-      <ul>
-        {% for category in categories %}
-          <li><a href="/products/search?filter={{search.term}}&category={{category.id}}">{{category.name}}</a></li>
-        {% endfor %} 
-      </ul>
-    </nav>
-  </aside>
-
-  {{section.products('', 'searched', products)}}
-
-</section>    
-
->>>>>>> a55b90d16e27559400a5f0499b86a0447eb1fc55
 {% endblock content %}
