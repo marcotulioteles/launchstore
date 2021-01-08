@@ -83,10 +83,17 @@ module.exports = {
     `
       ,[id])
   },
+<<<<<<< HEAD
   search(params) {
     const { filter, category } = params
 
     let query = "",
+=======
+  search (params) {
+    const { filter, category } = params
+
+    let query = `""`,
+>>>>>>> a55b90d16e27559400a5f0499b86a0447eb1fc55
       filterQuery = `WHERE`
     
     if (category) {
@@ -100,15 +107,23 @@ module.exports = {
       products.name ILIKE '%${filter}%'
       OR products.description ILIKE '%${filter}%'
     `
+<<<<<<< HEAD
 
     query = `
       SELECT products.*,
+=======
+    query = `
+      SELECT products.*, 
+>>>>>>> a55b90d16e27559400a5f0499b86a0447eb1fc55
         categories.name AS category_name
       FROM products
       LEFT JOIN categories ON (categories.id = products.category_id)
       ${filterQuery}
     `
+<<<<<<< HEAD
 
+=======
+>>>>>>> a55b90d16e27559400a5f0499b86a0447eb1fc55
     return db.query(query)
   }
 }
