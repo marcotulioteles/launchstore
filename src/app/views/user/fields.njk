@@ -16,7 +16,9 @@
       type="email" 
       name="email" 
       placeholder="Digite o seu email" 
-      value="{{ user.email }}">
+      value="{{ user.email }}"
+      onblur="Validate.apply(this,'isEmail')"
+    >
   </div>
 </div>
 
@@ -27,7 +29,7 @@
       type="password" 
       name="password" 
       placeholder="Escolha uma senha segura" 
-      value="{{ user.password }}">
+    >
   </div>
 </div>
 
@@ -51,7 +53,10 @@
       type="text" 
       name="cpf_cnpj" 
       placeholder="Digite seu documento" 
-      value="{{ user.cpf_cnpj }}">
+      value="{{ user.cpf_cnpj }}"
+      onkeydown="Mask.apply(this,'cpfCnpj')"
+      onblur="Validate.apply(this,'isCpfCnpj')"
+    >
   </div>
 </div>
 
@@ -62,6 +67,20 @@
       type="text" 
       name="cep" 
       placeholder="99999-999" 
-      value="{{ user.cep }}">
+      value="{{ user.cep }}"
+      onkeydown="Mask.apply(this,'cep')"
+      onblur="Validate.apply(this,'isCep')"
+    >
+  </div>
+</div>
+
+<div class="item">
+  <div>Endereço</div>
+  <div class="input">
+    <input 
+      type="text" 
+      name="address" 
+      placeholder="Digite o seu endereço completo" 
+      value="{{ user.address }}">
   </div>
 </div>
