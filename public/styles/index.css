@@ -453,6 +453,10 @@ form .item #photos-preview img {
   background-repeat: no-repeat;
 }
 
+.shop .items .product .image img {
+  object-fit: cover;
+}
+
 .shop .items h4 {
   margin: 8px 0;
   font-weight: 300;
