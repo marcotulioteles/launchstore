@@ -21,26 +21,25 @@ module.exports = {
     return res.render("session/forgot-password")
   },
   async forgot(req, res) {
-    try {
       const user = req.user
 
       //token to the user
       const token = crypto.randomBytes(20).toString("hex")
-      
-      //create an expiration
+
+      //create a token expiration
       let now = new Date()
       now = now.setHours(now.getHours() + 1)
-  
+
       await User.update(user.id, {
         reset_token: token,
         reset_token_expires: now
       })
-      
-      //send a email with a recovery link 
+
+      //send a email with a recovery link password
       await mailer.sendMail({
         to: user.email,
-        from: 'no-replay@launchstore.com.br',
-        subject: 'Recuperação de senha',
+        from: 'no-reply@launchstore.com.br',
+        subject: 'Recuperação ed Senha',
         html: `<h2>Perdeu a chave ?</h2>
         <p>Não se preocupe, clique no link abaixo para recuperar sua senha</p>
         <p>
@@ -49,19 +48,13 @@ module.exports = {
           </a>
         </p>
         `
-      }) 
+      })
       
       //alert the user about the sent email
       return res.render("session/forgot-password", {
-        success: "Verifique seu e-mail para resetar sua senha!"
+        sucess: "Verifique seu e-mail para resetar sua senha"
       })
-    }catch(err) {
-      console.error(err)
-      return res.render("session/forgot-password", {
-        error: "Erro inesperado, tente novamente!"
-      })
-    }
-  },
+    },
   resetForm(req, res) {
     return res.render("session/password-reset", { token: req.query.token })
   },
@@ -88,13 +81,13 @@ module.exports = {
         sucess: "Senha atualizada, Faça o seu login!"
       })
       
-    }catch(err) {
-      console.error(err)
-      return res.render("session/password-reset", {
-        user: req.body,
-        token,
-        error: "Erro inesperado, tente novamente!"
+      }catch(err) {
+        console.error(err)
+        return res.render("session/password-reset", {
+          user: req.body,
+          token,
+          error: "Erro inesperado, tente novamente!"
       })
     }
-  }
+  }  
 }

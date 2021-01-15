@@ -30,15 +30,15 @@ module.exports = {
       let user = await User.findOne({where: { email }})
 
       if (!user) return res.render("session/forgot-password", {
-        error: "E-mail não cadastrado!",
-        user: req.body
+        user: req.body,
+        error: "E-mail não cadastrado!"
       })
 
       req.user = user
 
-      next ()
-    
-    } catch {
+      next()
+
+    }catch(err) {
       console.error(err)
     }
   },
@@ -73,7 +73,7 @@ module.exports = {
     now = now.setHours(now.getHours())
 
     if (now > user.reset_token_expires) return res.render('session/password-reset', {
-      user: req.body,
+      user: req.body,   
       token,
       error: 'Token expirado! Por favor, solicite uma nova recuperação de senha.'
     })
