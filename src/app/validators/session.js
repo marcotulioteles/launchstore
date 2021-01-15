@@ -45,8 +45,8 @@ module.exports = {
 
   async reset(req, res, next) {
     // search for the user
-    const { email, password, token, passwordRepeat } = req.body
-    const user = await User.findOne({ where: {email} })
+    const { email, password, passwordRepeat, token } = req.body
+    const user = await User.findOne({ where: { email } })
 
     if (!user) return res.render("session/password-reset", {
       user: req.body,
@@ -54,32 +54,32 @@ module.exports = {
       error: "Usuário não cadastrado!"
     })
 
-    //verify if password matches
+    //if the password matches
     if (password != passwordRepeat) return res.render("session/password-reset", {
       user: req.body,
       token,
-      error: 'As duas senhas devem ser iguais!'
-    }) 
-    
-    //verify if token matches
-    if (token != user.reset_token) return res.render('session/password-reset', {
-      user: req.body,
-      token,
-      error: 'Token inválido! Solicite uma nova recuperação de senha.'
+      error: 'A senha e a repetição da senha estão incorretas!'
     })
 
+    //verify if token matches
+    if (token != user.reset_token) return res.render("session/password-reset", {
+      user: req.body,
+      token,
+      error: 'Token inválido! Solicite uma nova recuperação de senha'
+    }) 
+    
     //verify if token has not expired
     let now = new Date()
     now = now.setHours(now.getHours())
 
-    if (now > user.reset_token_expires) return res.render('session/password-reset', {
-      user: req.body,   
+    if (now > user.reset_token_expires) return res.render("session/password-reset", {
+      user: req.body,
       token,
-      error: 'Token expirado! Por favor, solicite uma nova recuperação de senha.'
+      error: 'Token expirado! Por favor, solicite uma nova recuperação de senha'
     })
 
     req.user = user
-
-    next ()
+    
+    next()
   }
 }

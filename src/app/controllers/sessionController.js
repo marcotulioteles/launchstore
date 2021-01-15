@@ -21,8 +21,9 @@ module.exports = {
     return res.render("session/forgot-password")
   },
   async forgot(req, res) {
-      const user = req.user
+    const user = req.user
 
+    try {
       //token to the user
       const token = crypto.randomBytes(20).toString("hex")
 
@@ -52,41 +53,45 @@ module.exports = {
       
       //alert the user about the sent email
       return res.render("session/forgot-password", {
-        sucess: "Verifique seu e-mail para resetar sua senha"
+        success: "Verifique seu e-mail para resetar sua senha"
       })
-    },
+
+    }catch(err) {
+      console.error(err)
+      return res.render("session/forgot-password", {
+        error: "Erro inesperado, tente novamente!"
+      })
+    }
+  },
   resetForm(req, res) {
     return res.render("session/password-reset", { token: req.query.token })
   },
   async reset(req, res) {
-    
-    const user = req.user
     const { password, token } = req.body
+    const user = req.user
 
     try {
-      
       //create a new password hash
       const newPassword = await hash(password, 8)
       
-      //update the user
+      //update the user on database
       await User.update(user.id, {
         password: newPassword,
-        reset_token: "",
-        reset_token_expires: ""
+        reset_token:"",
+        reset_token_expires:""
       })
-      
-      //Warn the user about their new password
+
+      //let the user know that he has a new password
       return res.render("session/login", {
         user: req.body,
-        sucess: "Senha atualizada, Faça o seu login!"
+        success: 'Senha atualizada! Faça o seu login'
       })
-      
-      }catch(err) {
-        console.error(err)
-        return res.render("session/password-reset", {
-          user: req.body,
-          token,
-          error: "Erro inesperado, tente novamente!"
+    }catch(err) {
+      console.error(err)
+      return res.render("session/password-reset", {
+        user: req.body,
+        token,
+        error: "Erro inesperado, tente novamente!"
       })
     }
   }  
