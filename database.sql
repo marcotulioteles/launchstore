@@ -41,7 +41,7 @@ CREATE TABLE "users" (
   "password" text NOT NULL,
   "cpf_cnpj" text UNIQUE NOT NULL,
   "cep" text,
-  "adress" text,
+  "address" text,
   "created_at" timestamp DEFAULT (now()),
   "updated_at" timestamp DEFAULT (now())
 );
@@ -77,3 +77,18 @@ CREATE TABLE "session" (
 )
 WITH (OIDS=FALSE);
 ALTER TABLE "session" ADD CONSTRAINT "sessin_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
+
+--cacacde effect when delete user and products
+ALTER TABLE "products"
+DROP CONSTRAINT products_user_id_fkey,
+ADD CONSTRAINT products_user_id_fkey
+FOREIGN KEY ("user_id")
+REFERENCES "users" ("id")
+ON DELETE CASCADE;
+
+ALTER TABLE "files"
+DROP CONSTRAINT files_product_id_fkey,
+ADD CONSTRAINT files_product_id_fkey
+FOREIGN KEY ("product_id")
+REFERENCES "products" ("id") 
+ON DELETE CASCADE; 
