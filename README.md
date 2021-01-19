@@ -86,10 +86,10 @@ Project developed during ** Bootcamp - LaunchBase ** offered by [Rocketseat](htt
 ### Pre-requisites
 
 Before you begin, you will need to have the following tools installed on your machine:
-[Git] (https://git-scm.com), [Node.js] (https://nodejs.org/en/).
+[Git] (https://git-scm.com), [Node.js] (https://nodejs.org/en/), [PostgreSQL](https://www.postgresql.org/download/)
 In addition, it is good to have an editor to work with the code like [VSCode] (https://code.visualstudio.com/)
 
-#### Rodando o Backend (servidor)
+#### Running the Backend (server)
 
 ```bash
 
@@ -109,11 +109,19 @@ $ npm start
 
 ```
 
+#### Building the Database
+
+Copy the content from the file database.sql and run the queries in the Database PostgreSQL, block by bloco to create all tables that the application will use.
+> See the file  [database.sql](https://github.com/marcotulioteles/launchstore/blob/master/database.sql)
+
+Inside the folder "config" there is a file called "db.js". Replace the user and password as your database user settings.
+> See the file  [db.js](https://github.com/marcotulioteles/launchstore/blob/master/src/config/db.js)
+
 ## Tech Stack
 
 The following tools were used in the construction of the project:
 
-#### **Website**  ([React](https://reactjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
+#### **Website**
 
 -   **[HTML](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5)**
 -   **[CSS](https://www.w3schools.com/css/)**
@@ -121,7 +129,7 @@ The following tools were used in the construction of the project:
 
 > See the file  [package.json](https://github.com/marcotulioteles/launchstore/blob/master/package.json)
 
-#### ([NodeJS](https://nodejs.org/en/))
+#### ([NodeJS])(https://nodejs.org/en/)
 
 -   **[Express](https://expressjs.com/)**
 -   **[Multer](https://github.com/expressjs/multer)**
@@ -129,6 +137,8 @@ The following tools were used in the construction of the project:
 -   **[MethodOverride](https://www.npmjs.com/package/method-override)**
 -   **[Nunjucks](https://www.npmjs.com/package/nunjucks)**
 -   **[Nodemailer](https://nodemailer.com/about/)**
+
+#### ([PostgreSQL])(https://www.postgresql.org/download/)
 
 > See the file  [package.json](https://github.com/marcotulioteles/launchstore/blob/master/package.json)
 
