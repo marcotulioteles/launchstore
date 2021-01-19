@@ -3,7 +3,7 @@
 </h1> -->
 
 <h1 align="center">
-   ♻️ <a href="#"> LAUNCHSTORE </a>
+  <a href="#"> LAUNCHSTORE </a>
 </h1>
 
 <h3 align="center">
@@ -37,7 +37,6 @@
     </a> 
 </p> -->
 
-
 <h4 align="center"> 
 	 Status: Building...
 </h4>
@@ -48,7 +47,6 @@
  <a href="#layout">Layout</a> • 
  <a href="#how-it-works">How it works</a> • 
  <a href="#tech-stack">Tech Stack</a> • 
- <a href="#contributors">Contributors</a> • 
  <a href="#author">Author</a> • 
  <a href="#user-content-license">License</a>
 
@@ -116,3 +114,42 @@ $ npm start
 # The server will start at port: 3000 - go to http://localhost:3000
 
 ```
+
+## Tech Stack
+
+The following tools were used in the construction of the project:
+
+#### **Website**  ([React](https://reactjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
+
+-   **[HTML](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5)**
+-   **[CSS](https://www.w3schools.com/css/)**
+-   **[Javascript](https://developer.mozilla.org/fr/docs/Web/JavaScript)**
+
+> See the file  [package.json](https://github.com/marcotulioteles/launchstore/blob/master/package.json)
+
+#### ([NodeJS](https://nodejs.org/en/)
+
+-   **[Express](https://expressjs.com/)**
+-   **[Multer](https://github.com/expressjs/multer)**
+-   **[Bcryptjs](https://www.npmjs.com/package/bcrypt)**
+-   **[MethodOverride](https://www.npmjs.com/package/method-override)**
+-   **[Nunjucks](https://www.npmjs.com/package/nunjucks)**
+-   **[Nodemailer](https://nodemailer.com/about/)**
+
+> See the file  [package.json](https://github.com/marcotulioteles/launchstore/blob/master/package.json)
+
+## Author
+<p><b>Marco Tulio Teles</b></p>
+
+[Linkedin](https://www.linkedin.com/in/marco-tulio-teles-30019672/) 
+[E-mail](mailto:marcotuliocivileng@gmail.com)
+
+---
+
+## License
+
+This project is under the license [MIT](./LICENSE).
+
+Made with love by Marco Tulio Teles 👋🏽 [Get in Touch!](https://www.linkedin.com/in/marco-tulio-teles-30019672/)
+
+---
