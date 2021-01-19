@@ -44,8 +44,7 @@
 <p align="center">
  <a href="#about">About</a> •
  <a href="#features">Features</a> •
- <a href="#layout">Layout</a> • 
- <a href="#how-it-works">How it works</a> • 
+ <a href="#screenshots">Screen Shots</a> • 
  <a href="#tech-stack">Tech Stack</a> • 
  <a href="#author">Author</a> • 
  <a href="#user-content-license">License</a>
@@ -78,15 +77,10 @@ Project developed during ** Bootcamp - LaunchBase ** offered by [Rocketseat](htt
 ### Screenshots
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Ecoleta" title="home" src="./assets/home.png" width="400px">
-
-  <img alt="Ecoleta" title="#Ecoleta" src="./assets/pizza_annoucement.png" width="400px">
-
-  <img alt="Ecoleta" title="#Ecoleta" src="./assets/register.png" width="400px">
-  
-  <img alt="Ecoleta" title="#Ecoleta" src="./assets/register_form.png" width="400px">
-  
-  <img alt="Ecoleta" title="#Ecoleta" src="./assets/register_new_product.png" width="400px">
+  <img alt="home" title="home" src="./assets/home.gif" width="800px">
+  <!-- <img alt="pizza" title="#pizza" src="./assets/pizza_announcement.png" width="400px">
+  <img alt="register" title="#register" src="./assets/register.png" width="400px">
+  <img alt="registerForm" title="#registerForm" src="./assets/register_form.png" width="400px"> -->
 </p>
 
 ### Pre-requisites
@@ -127,7 +121,7 @@ The following tools were used in the construction of the project:
 
 > See the file  [package.json](https://github.com/marcotulioteles/launchstore/blob/master/package.json)
 
-#### ([NodeJS](https://nodejs.org/en/)
+#### ([NodeJS](https://nodejs.org/en/))
 
 -   **[Express](https://expressjs.com/)**
 -   **[Multer](https://github.com/expressjs/multer)**
